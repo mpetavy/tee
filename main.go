@@ -7,7 +7,6 @@ import (
 
 	"github.com/mpetavy/common"
 
-	"fmt"
 	"io"
 	"os"
 )
@@ -80,8 +79,6 @@ func run() error {
 			return err
 		}
 	}
-
-	common.File(fmt.Sprintf("bytes written: %d", c))
 
 	return nil
 }
