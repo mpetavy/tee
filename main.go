@@ -88,6 +88,6 @@ func main() {
 
 	common.NoBanner = true
 
-	common.New(&common.App{"tee", "1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, "https://github.com/mpetavy/tee", false, nil,nil, nil, run, time.Duration(0)}, nil)
+	common.New(&common.App{"tee", "1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, "https://github.com/mpetavy/tee", false, nil, nil, run, time.Duration(0)}, nil)
 	common.Run()
 }
