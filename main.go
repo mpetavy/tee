@@ -2,10 +2,8 @@ package main
 
 import (
 	"flag"
-	"os/signal"
-	"time"
-
 	"github.com/mpetavy/common"
+	"os/signal"
 
 	"io"
 	"os"
@@ -17,6 +15,10 @@ var (
 	append = flag.Bool("a", false, "append the output to the output file")
 	ignore = flag.Bool("s", false, "ignore the SIGINT signal")
 )
+
+func init() {
+	common.Init("tee", "1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, "https://github.com/mpetavy/tee", false, nil, nil, run, 0)
+}
 
 func run() error {
 	outputFlag := os.O_WRONLY | os.O_CREATE
@@ -88,6 +90,5 @@ func main() {
 
 	common.NoBanner = true
 
-	common.New(&common.App{"tee", "1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, "https://github.com/mpetavy/tee", false, nil, nil, run, time.Duration(0)}, nil)
-	common.Run()
+	common.Run(nil)
 }
