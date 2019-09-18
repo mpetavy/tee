@@ -17,7 +17,7 @@ var (
 )
 
 func init() {
-	common.Init("tee", "1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, "https://github.com/mpetavy/tee", false, nil, nil, run, 0)
+	common.Init("1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, false, nil, nil, run, 0)
 }
 
 func run() error {
