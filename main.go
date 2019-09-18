@@ -41,7 +41,7 @@ func run() error {
 		}
 	}
 	if *output != "" {
-		outputFile, err = os.OpenFile(*output, os.O_RDWR|os.O_CREATE|os.O_APPEND, os.ModePerm)
+		outputFile, err = os.OpenFile(*output, os.O_RDWR|os.O_CREATE|os.O_APPEND, common.FileFileMode)
 
 		if err != nil {
 			return err
