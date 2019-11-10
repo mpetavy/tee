@@ -12,7 +12,7 @@ import (
 var (
 	input  = flag.String("i", "", "file to read data, use OS.STDIN when omitted")
 	output = flag.String("o", "", "file to save data additionally to OS.STDOUT")
-	append = flag.Bool("a", false, "append the output to the output file")
+	add    = flag.Bool("a", false, "append the output to the output file")
 	ignore = flag.Bool("s", false, "ignore the SIGINT signal")
 )
 
@@ -22,7 +22,7 @@ func init() {
 
 func run() error {
 	outputFlag := os.O_WRONLY | os.O_CREATE
-	if *append {
+	if *add {
 		outputFlag |= os.O_APPEND
 	}
 
@@ -41,7 +41,7 @@ func run() error {
 		}
 	}
 	if *output != "" {
-		outputFile, err = os.OpenFile(*output, os.O_RDWR|os.O_CREATE|os.O_APPEND, common.FileFileMode)
+		outputFile, err = os.OpenFile(*output, os.O_RDWR|os.O_CREATE|os.O_APPEND, common.DefaultFileMode)
 
 		if err != nil {
 			return err
