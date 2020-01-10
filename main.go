@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"github.com/mpetavy/common"
 	"os/signal"
 
@@ -17,7 +18,7 @@ var (
 )
 
 func init() {
-	common.Init("1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", common.APACHE, false, nil, nil, run, 0)
+	common.Init("1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, false, nil, nil, run, 0)
 }
 
 func run() error {
