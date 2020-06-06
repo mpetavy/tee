@@ -48,7 +48,9 @@ func run() error {
 			return err
 		}
 
-		defer outputFile.Close()
+		defer func() {
+			common.Error(outputFile.Close())
+		}()
 	}
 
 	b := make([]byte, 8192)
@@ -89,7 +91,7 @@ func run() error {
 func main() {
 	defer common.Done()
 
-	common.NoBanner = true
+	*common.FlagNoBanner = true
 
 	common.Run(nil)
 }
