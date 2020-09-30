@@ -18,7 +18,7 @@ var (
 )
 
 func init() {
-	common.Init(false, "1.0.2", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, nil, nil, run, 0)
+	common.Init(false, "1.0.2", "", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, nil, nil, run, 0)
 }
 
 func run() error {
@@ -67,7 +67,8 @@ func run() error {
 		}
 
 		if *output != "" {
-			outputFile.Write(b[:n])
+			_, err := outputFile.Write(b[:n])
+			common.Error(err)
 		}
 
 		_, err = os.Stdout.Write(b[:n])
