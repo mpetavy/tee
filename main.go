@@ -1,8 +1,8 @@
 package main
 
 import (
+	"embed"
 	"flag"
-	"fmt"
 	"github.com/mpetavy/common"
 	"os/signal"
 
@@ -17,8 +17,11 @@ var (
 	ignore = flag.Bool("s", false, "ignore the SIGINT signal")
 )
 
+//go:embed go.mod
+var resources embed.FS
+
 func init() {
-	common.Init("tee", "", "", "", "2017", "Passthrough STDIN/file to STDOUT and/or file (optional)", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, nil, nil, nil, run, 0)
+	common.Init("", "", "", "", "Passthrough STDIN/file to STDOUT and/or file (optional)", "", "", "", &resources, nil, nil, run, 0)
 }
 
 func run() error {
